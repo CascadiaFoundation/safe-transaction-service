@@ -144,3 +144,6 @@ class CoingeckoClient:
 
     def get_metis_usd_price(self) -> float:
         return self.get_price("metis-token")
+
+    def get_cascadia_usd_price(self) -> float:
+        return self.get_price("cascadia")

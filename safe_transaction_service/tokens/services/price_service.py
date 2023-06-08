@@ -197,6 +197,9 @@ class PriceService:
         except CannotGetPrice:
             return self.coingecko_client.get_kcs_usd_price()
 
+    def get_cascadia_usd_price(self) -> float:
+        return self.coingecko_client.get_cascadia_usd_price()
+
     @cachedmethod(cache=operator.attrgetter("cache_ether_usd_price"))
     @cache_memoize(60 * 30, prefix="balances-get_ether_usd_price")  # 30 minutes
     def get_ether_usd_price(self) -> float:
@@ -289,6 +292,12 @@ class PriceService:
             EthereumNetwork.XDC_APOTHEM_NETWORK,
         ):
             return self.get_xdc_usd_price()
+        
+        elif self.ethereum_network in (
+            EthereumNetwork.CASCADIA,
+            EthereumNetwork.CASCADIA_TESTNET,
+        ):
+            return self.get_cascadia_usd_price()
         else:
             return self.get_ether_usd_price()
 
