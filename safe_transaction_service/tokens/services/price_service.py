@@ -297,7 +297,10 @@ class PriceService:
             EthereumNetwork.CASCADIA,
             EthereumNetwork.CASCADIA_TESTNET,
         ):
-            return self.get_cascadia_usd_price()
+            try:
+                return self.get_cascadia_usd_price()
+            except CannotGetPrice:
+                return 0  # pending data update
         else:
             return self.get_ether_usd_price()
 
