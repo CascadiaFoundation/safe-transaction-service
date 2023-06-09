@@ -294,13 +294,9 @@ class PriceService:
             return self.get_xdc_usd_price()
         
         elif self.ethereum_network in (
-            EthereumNetwork.CASCADIA,
             EthereumNetwork.CASCADIA_TESTNET,
         ):
-            try:
-                return self.get_cascadia_usd_price()
-            except CannotGetPrice:
-                return 0  # pending data update
+            return self.get_cascadia_usd_price()
         else:
             return self.get_ether_usd_price()
 
