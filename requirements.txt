@@ -32,5 +32,5 @@ psycopg2==2.9.6
 redis==4.5.5
 requests==2.31.0
 # safe-eth-py[django]==5.4.3
-git+https://github.com/msvstj/safe-eth-py.git@cascadia_5.4.3#egg=safe-eth-py
+git+https://github.com/protofire/safe-eth-py.git@cascadia-testnet#egg=safe-eth-py
 web3==6.4.0
